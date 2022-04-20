@@ -37,7 +37,7 @@ var today = year + month + day;
 
 var xhr = new XMLHttpRequest();
 var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'; /*초단기실황조회*/
-var servicekey="F48VWLxsrGjMjh4xItJOAuKDOvT9Bbq2cgYIOjS9W%2B4ox5t0i78Z4HswmwfFD%2F%2Bj2VdzxpwjwLy5mMWiye2HWw%3D%3D";
+var servicekey="발급받은 서비스키";
 var baseDate=today;
 var baseTime=time;
 var nx= ${data.xLat};
@@ -98,7 +98,8 @@ xhr.onreadystatechange = function () {
 
 xhr.send('');
 
-/* Status: 200
+/* [초기 반환 정보]
+ * Status: 200
  * nHeaders: "content-language: ko-KR\r\ncontent-length: 275\r\ncontent-type: application/json;charset=UTF-8\r\n"
  * nBody: {"response":{"header":{"resultCode":"00","resultMsg":"NORMAL_SERVICE"},
  *"body":{"dataType":"JSON","items":
