@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+        console.log(navigator.geo)
+        function getLocation() {
+            if (navigator.geolocation) { // GPS를 지원하면
+                navigator.geolocation.getCurrentPosition(function(position) {
+                	
+                	document.getElementById("lat").value=position.coords.latitude;
+                	document.getElementById("lon").value=position.coords.longitude;
+                	
+                }, function(error) {
+                    console.error(error);
+                }, {
+                    enableHighAccuracy : false,    
+                    //정확도 false : 낮은정확도(디폴트값) -- 빠른 반응
+                    //정확도 true : 높은정확도	-- 느린 반응
+                    maximumAge : 0,        
+                    //캐시값 저장의 유효시간
+                    // 0 : 캐시된 위치 사용 X
+                    // Infinity : 캐시값을 어느 때에라도 사용함
+                    timeout : Infinity
+                    // 위치를 받아올때 까지의 대기시간. Infinity(디폴트값)
+                });
+            } else {
+                alert('GPS를 지원하지 않습니다');
+            }
+        }
+        getLocation();
+        
+    </script>
+    
+    <form action="test07.jsp" method="post">
+    	<input type="hidden" id="lat" name="lat" value="">
+    	<input type="hidden" id="lon" name="lon" value="">
+    	<input type="submit" value="날씨확인">
+    </form>
+    
+</body>
+</html>
